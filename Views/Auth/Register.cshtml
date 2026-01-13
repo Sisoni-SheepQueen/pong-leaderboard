@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Register</h2>
+
+<form method="post" asp-action="Register">
+    <input type="text" name="username" placeholder="Username" required /><br />
+    <input type="password" name="password" placeholder="Password" required /><br />
+    <button type="submit">Register</button>
+</form>
+
+<p style="color:red;">@ViewBag.Message</p>
+<a href="/Auth/Login">Already have an account? Login</a>
