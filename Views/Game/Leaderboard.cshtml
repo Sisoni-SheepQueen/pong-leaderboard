@@ -1,20 +1,24 @@
 ﻿@model IEnumerable<dynamic>
+
 <h2>Leaderboard</h2>
+
 <table border="1">
     <tr>
         <th>Username</th>
         <th>Score</th>
-        @if (HttpContext.Session.GetString("Role") == "admin")
+        @if (Context.Session.GetString("Role") == "admin")
         {
             <th>Actions</th>
         }
     </tr>
+
     @foreach (var item in Model)
     {
         <tr>
             <td>@item.Username</td>
             <td>@item.Score</td>
-            @if (HttpContext.Session.GetString("Role") == "admin")
+
+            @if (Context.Session.GetString("Role") == "admin")
             {
                 <td>
                     <form method="post" asp-action="DeleteScore" asp-controller="Game">

@@ -65,6 +65,7 @@ namespace PongLeaderboard.Controllers
             HttpContext.Session.SetInt32("UserId", user.Id);
 
             return RedirectToAction("Index", "Game");
+
         }
 
         public IActionResult Logout()

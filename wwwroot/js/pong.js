@@ -5,6 +5,11 @@ const ctx = canvas.getContext("2d");
 const paddleWidth = 10, paddleHeight = 100;
 let paddleY = (canvas.height - paddleHeight) / 2;
 
+// Bot Paddle
+const botWidth = 10, botHeight = 100;
+let botY = (canvas.height - botHeight) / 2;
+const botSpeed = 4; // higher number = harder bot
+
 // Ball
 let ballX = canvas.width / 2;
 let ballY = canvas.height / 2;
@@ -20,6 +25,11 @@ function drawPaddle() {
     ctx.fillRect(0, paddleY, paddleWidth, paddleHeight);
 }
 
+function drawBot() {
+    ctx.fillStyle = "#DD9500"; // bot color
+    ctx.fillRect(canvas.width - botWidth, botY, botWidth, botHeight);
+}
+
 function drawBall() {
     ctx.beginPath();
     ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
@@ -30,7 +40,9 @@ function drawBall() {
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+
     drawPaddle();
+    drawBot();
     drawBall();
 
     // Ball movement
@@ -42,30 +54,64 @@ function draw() {
         ballSpeedY = -ballSpeedY;
     }
 
-    // Bounce paddle
-    if (ballX - ballRadius < paddleWidth && ballY > paddleY && ballY < paddleY + paddleHeight) {
+    // Bounce player paddle
+    if (ballX - ballRadius < paddleWidth &&
+        ballY > paddleY &&
+        ballY < paddleY + paddleHeight) {
         ballSpeedX = -ballSpeedX;
         score += 1;
         document.getElementById("score").innerText = score;
     }
 
-    // Ball missed
+    // Bounce bot paddle
+    if (ballX + ballRadius > canvas.width - botWidth &&
+        ballY > botY &&
+        ballY < botY + botHeight) {
+        ballSpeedX = -ballSpeedX;
+    }
+
+    // Ball missed player
     if (ballX - ballRadius < 0) {
         alert("Game Over! Your score: " + score);
-        saveScore(score); // записваме резултата
+        saveScore(score);
         document.location.reload();
     }
+
+    // Ball missed bot (bounce back)
+    if (ballX + ballRadius > canvas.width) {
+        ballX = canvas.width / 2;
+        ballY = canvas.height / 2;
+        ballSpeedX = -ballSpeedX; // bounce back to player
+        ballSpeedY = 4 * (Math.random() > 0.5 ? 1 : -1); // random vertical direction
+    }
+
+    // Bot AI: follow the ball
+    const botCenter = botY + botHeight / 2;
+    if (ballY > botCenter + 10) { // add a small buffer to smooth movement
+        botY += botSpeed;
+    } else if (ballY < botCenter - 10) {
+        botY -= botSpeed;
+    }
+
+    // Keep bot inside canvas
+    if (botY < 0) botY = 0;
+    if (botY + botHeight > canvas.height) botY = canvas.height - botHeight;
 
     requestAnimationFrame(draw);
 }
 
 // Control paddle with mouse
 canvas.addEventListener("mousemove", function (e) {
-    let rect = canvas.getBoundingClientRect();
+    const rect = canvas.getBoundingClientRect();
     paddleY = e.clientY - rect.top - paddleHeight / 2;
+
+    // Keep player paddle inside canvas
+    if (paddleY < 0) paddleY = 0;
+    if (paddleY + paddleHeight > canvas.height) paddleY = canvas.height - paddleHeight;
 });
 
 draw();
+
 function saveScore(score) {
     fetch('/Game/SaveScore', {
         method: 'POST',
