@@ -4,7 +4,57 @@
 
 <h2>Pong Game</h2>
 
-<canvas id="pong" width="800" height="400" style="border:1px solid black;"></canvas>
+<div style="position: relative; width: 800px;">
+    <canvas id="pong" width="800" height="400" style="border:1px solid black;"></canvas>
+
+    <!-- MENU OVERLAY -->
+    <div id="menuOverlay" class="overlay">
+        <h2>Select Difficulty</h2>
+        <button onclick="startGame('easy')">Easy</button>
+        <button onclick="startGame('medium')">Medium</button>
+        <button onclick="startGame('hard')">Hard</button>
+    </div>
+
+
+    <!-- GAME OVER OVERLAY -->
+    <div id="gameOverOverlay" class="overlay" style="display:none;">
+        <h2>Game Over</h2>
+        <p>Your score: <span id="finalScore"></span></p>
+        <button onclick="restartGame()">Restart</button>
+    </div>
+</div>
+
 <p>Score: <span id="score">0</span></p>
+
+<div style="margin-top: 15px;">
+    <a href="/Game/Leaderboard" class="btn btn-primary">
+        View Leaderboard
+    </a>
+</div>
+
+<style>
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 800px;
+        height: 400px;
+        background: rgba(0,0,0,0.7);
+        color: white;
+        display: flex; /* flex is default */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        z-index: 100; /* make sure it’s above canvas */
+    }
+
+
+        .overlay button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+</style>
 
 <script src="~/js/pong.js"></script>
