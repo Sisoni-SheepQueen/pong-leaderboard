@@ -123,11 +123,20 @@ function draw() {
     }
 
     // Game over
-    if (ballX - ballRadius < 0) {
+    // Player missed
+    if (ballX - ballRadius < 0 && gameRunning) {
         gameRunning = false;
         saveScore(score);
         showGameOver();
     }
+
+    // Bot missed
+    if (ballX + ballRadius > canvas.width && gameRunning) {
+        gameRunning = false;
+        saveScore(score);
+        showGameOver();
+    }
+
 
     // Bot AI
     const botCenter = botY + botHeight / 2;

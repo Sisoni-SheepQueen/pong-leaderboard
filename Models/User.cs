@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace PongLeaderboard.Models
@@ -19,5 +20,8 @@ namespace PongLeaderboard.Models
         public string Role { get; set; } = "user";
 
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+        // Navigation property
+        public ICollection<Score> Scores { get; set; }
     }
 }

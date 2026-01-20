@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PongLeaderboard.Data;
 
@@ -11,9 +12,11 @@ using PongLeaderboard.Data;
 namespace PongLeaderboard.Migrations
 {
     [DbContext(typeof(PongDbContext))]
-    partial class PongDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260120111538_LinkScoresToUser")]
+    partial class LinkScoresToUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

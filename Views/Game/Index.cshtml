@@ -1,60 +1,130 @@
 ﻿@{
-    ViewBag.Title = "Pong Game";
+    ViewBag.Title = "Neon Pong";
 }
 
-<h2>Pong Game</h2>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 
-<div style="position: relative; width: 800px;">
-    <canvas id="pong" width="800" height="400" style="border:1px solid black;"></canvas>
+<h1 class="title">NEON PONG</h1>
+
+<div class="game-wrapper">
+    <canvas id="pong" width="800" height="400"></canvas>
 
     <!-- MENU OVERLAY -->
     <div id="menuOverlay" class="overlay">
         <h2>Select Difficulty</h2>
-        <button onclick="startGame('easy')">Easy</button>
-        <button onclick="startGame('medium')">Medium</button>
-        <button onclick="startGame('hard')">Hard</button>
+        <button class="btn neon" onclick="startGame('easy')">Easy</button>
+        <button class="btn neon" onclick="startGame('medium')">Medium</button>
+        <button class="btn neon" onclick="startGame('hard')">Hard</button>
     </div>
-
 
     <!-- GAME OVER OVERLAY -->
     <div id="gameOverOverlay" class="overlay" style="display:none;">
         <h2>Game Over</h2>
-        <p>Your score: <span id="finalScore"></span></p>
-        <button onclick="restartGame()">Restart</button>
+        <p>Score: <span id="finalScore"></span></p>
+        <button class="btn neon" onclick="restartGame()">Restart</button>
     </div>
 </div>
 
-<p>Score: <span id="score">0</span></p>
-
-<div style="margin-top: 15px;">
-    <a href="/Game/Leaderboard" class="btn btn-primary">
-        View Leaderboard
-    </a>
+<div class="hud">
+    <span>Score: <span id="score">0</span></span>
+    <a href="/Game/Leaderboard" class="btn outline">Leaderboard</a>
 </div>
 
+<script src="~/js/pong.js"></script>
+
 <style>
-    .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #ff4ecd, #ffdd00);
+        font-family: 'Orbitron', sans-serif;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .title {
+        margin: 20px 0;
+        font-size: 3rem;
+        letter-spacing: 4px;
+        text-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    .game-wrapper {
+        position: relative;
         width: 800px;
         height: 400px;
-        background: rgba(0,0,0,0.7);
-        color: white;
-        display: flex; /* flex is default */
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 0 30px rgba(255, 80, 200, 0.6);
+        background: rgba(0,0,0,0.25);
+        backdrop-filter: blur(10px);
+    }
+
+    canvas {
+        display: block;
+        background: rgba(0,0,0,0.35);
+    }
+
+    .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.6);
+        backdrop-filter: blur(8px);
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 10px;
-        z-index: 100; /* make sure it’s above canvas */
+        gap: 15px;
+        z-index: 10;
     }
 
-
-        .overlay button {
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
+        .overlay h2 {
+            margin-bottom: 10px;
+            font-size: 2rem;
+            text-shadow: 0 0 15px rgba(255, 200, 255, 0.8);
         }
-</style>
 
-<script src="~/js/pong.js"></script>
+    .btn {
+        font-family: inherit;
+        padding: 12px 28px;
+        font-size: 1rem;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        color: white;
+    }
+
+        .btn.neon {
+            border: none;
+            background: linear-gradient(135deg, #ff4ecd, #ffdd00);
+            box-shadow: 0 0 15px rgba(255, 200, 0, 0.7);
+        }
+
+            .btn.neon:hover {
+                transform: scale(1.07);
+                box-shadow: 0 0 25px rgba(255, 230, 100, 1);
+            }
+
+        .btn.outline {
+            border: 2px solid white;
+            background: transparent;
+        }
+
+            .btn.outline:hover {
+                background: white;
+                color: black;
+            }
+
+    .hud {
+        margin-top: 15px;
+        width: 800px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1.2rem;
+        text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+</style>

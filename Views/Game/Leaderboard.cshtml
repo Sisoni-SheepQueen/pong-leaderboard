@@ -1,34 +1,186 @@
 ﻿@model IEnumerable<dynamic>
 
-<h2>Leaderboard</h2>
+@{
+    ViewBag.Title = "Leaderboard";
+}
 
-<table border="1">
-    <tr>
-        <th>Username</th>
-        <th>Score</th>
-        @if (Context.Session.GetString("Role") == "admin")
-        {
-            <th>Actions</th>
-        }
-    </tr>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>@item.Username</td>
-            <td>@item.Score</td>
+<div class="leaderboard-container">
+    <div class="leaderboard-card">
+        <h2>🏆 Leaderboard</h2>
 
-            @if (Context.Session.GetString("Role") == "admin")
-            {
-                <td>
-                    <form method="post" asp-action="DeleteScore" asp-controller="Game">
-                        <input type="hidden" name="username" value="@item.Username" />
-                        <button type="submit">Delete</button>
-                    </form>
-                </td>
-            }
-        </tr>
+        <table>
+            <thead>
+                <tr>
+                    <th>Player</th>
+                    <th>Score</th>
+
+                    @if (Context.Session.GetString("Role") == "admin")
+                    {
+                        <th>Admin</th>
+                    }
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Username</td>
+                        <td class="score">@item.Score</td>
+
+                        @if (Context.Session.GetString("Role") == "admin")
+                        {
+                            <td>
+                                <form method="post" asp-action="DeleteScore" asp-controller="Game">
+                                    <input type="hidden" name="username" value="@item.Username" />
+                                    <button type="submit" class="delete-btn">Delete</button>
+                                </form>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <a href="/Game/Index" class="back-btn">Back to Game</a>
+    </div>
+</div>
+
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #ff4ecd, #ffdd00);
+        font-family: 'Orbitron', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
     }
-</table>
 
-<a href="/Game/Index">Back to Game</a>
+    .leaderboard-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .leaderboard-card {
+        width: 700px;
+        padding: 40px;
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(12px);
+        border-radius: 25px;
+        box-shadow: 0 0 45px rgba(255, 80, 200, 0.7);
+        text-align: center;
+    }
+
+        .leaderboard-card h2 {
+            margin-bottom: 25px;
+            font-size: 2.4rem;
+            letter-spacing: 3px;
+            text-shadow: 0 0 20px rgba(255,255,255,0.7);
+        }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 25px;
+    }
+
+    thead {
+        background: linear-gradient(135deg, #ff4ecd, #ffdd00);
+    }
+
+    th, td {
+        padding: 14px;
+        text-align: center;
+    }
+
+    th {
+        font-size: 1rem;
+        letter-spacing: 1px;
+        color: white;
+    }
+
+    tbody tr {
+        background: rgba(0, 0, 0, 0.25);
+        transition: all 0.25s ease;
+    }
+
+        tbody tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        tbody tr:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(255, 200, 0, 0.7);
+        }
+
+    .score {
+        color: #ffdd00;
+        text-shadow: 0 0 10px rgba(255, 221, 0, 0.8);
+        font-weight: bold;
+    }
+
+    .delete-btn {
+        padding: 8px 14px;
+        border-radius: 20px;
+        border: none;
+        font-family: inherit;
+        cursor: pointer;
+        background: #ff3b3b;
+        color: white;
+        box-shadow: 0 0 12px rgba(255, 80, 80, 0.8);
+        transition: all 0.25s ease;
+    }
+
+        .delete-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 100, 100, 1);
+        }
+
+    .back-btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 12px 26px;
+        border-radius: 30px;
+        background: linear-gradient(135deg, #ff4ecd, #ffdd00);
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        box-shadow: 0 0 15px rgba(255, 200, 0, 0.8);
+        transition: all 0.3s ease;
+    }
+
+        .back-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 230, 100, 1);
+        }
+    /* Top 3 gradient highlights */
+    .gold td {
+        background: linear-gradient(135deg, #ff4ecd, #ffdd00);
+        color: black;
+        font-weight: bold;
+        text-shadow: 0 0 10px #fff;
+        box-shadow: 0 0 15px #ffdd00;
+    }
+
+    .silver td {
+        background: linear-gradient(135deg, #ff85cd, #ffe680);
+        color: black;
+        font-weight: bold;
+        text-shadow: 0 0 10px #fff;
+        box-shadow: 0 0 12px #ffe680;
+    }
+
+    .bronze td {
+        background: linear-gradient(135deg, #ff6fa0, #ffd966);
+        color: black;
+        font-weight: bold;
+        text-shadow: 0 0 8px #fff;
+        box-shadow: 0 0 10px #ffd966;
+    }
+</style>

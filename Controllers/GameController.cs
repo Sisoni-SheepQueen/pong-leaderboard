@@ -40,16 +40,19 @@ namespace PongLeaderboard.Controllers
         public IActionResult Leaderboard()
         {
             var topScores = _context.Scores
+                .Include(s => s.User) // include the related User
                 .OrderByDescending(s => s.Value)
                 .Take(10)
                 .Select(s => new {
-                    Username = s.UserId != 0 ? _context.Users.FirstOrDefault(u => u.Id == s.UserId).Username : "Unknown",
+                    Username = s.User != null ? s.User.Username : "Unknown",
                     Score = s.Value
                 })
                 .ToList();
 
             return View(topScores);
         }
+
+
         [HttpPost]
         public IActionResult DeleteScore(string username)
         {

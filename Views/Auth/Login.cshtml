@@ -2,13 +2,124 @@
     ViewBag.Title = "Login";
 }
 
-<h2>Login</h2>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 
-<form method="post" asp-action="Login">
-    <input type="text" name="username" placeholder="Username" required /><br />
-    <input type="password" name="password" placeholder="Password" required /><br />
-    <button type="submit">Login</button>
-</form>
+<div class="login-container">
+    <div class="login-card">
+        <h2>Welcome Back</h2>
 
-<p style="color:red;">@ViewBag.Message</p>
-<a href="/Auth/Register">Don't have an account? Register</a>
+        <form method="post" asp-action="Login">
+            <input type="text" name="username" placeholder="Username" required />
+            <input type="password" name="password" placeholder="Password" required />
+
+            <button type="submit" class="btn neon">Login</button>
+        </form>
+
+        @if (ViewBag.Message != null)
+        {
+            <p class="error">@ViewBag.Message</p>
+        }
+
+        <a href="/Auth/Register" class="register-link">
+            Don’t have an account? <span>Register</span>
+        </a>
+    </div>
+</div>
+
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(135deg, #ff4ecd, #ffdd00);
+        font-family: 'Orbitron', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+
+    .login-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .login-card {
+        width: 380px;
+        padding: 40px 30px;
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(12px);
+        border-radius: 20px;
+        box-shadow: 0 0 40px rgba(255, 80, 200, 0.7);
+        text-align: center;
+    }
+
+        .login-card h2 {
+            margin-bottom: 25px;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px rgba(255,255,255,0.6);
+        }
+
+        .login-card input {
+            width: 100%;
+            padding: 12px 14px;
+            margin-bottom: 15px;
+            border-radius: 30px;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+            .login-card input::placeholder {
+                color: #999;
+            }
+
+    .btn {
+        width: 100%;
+        padding: 12px;
+        border-radius: 30px;
+        border: none;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: all 0.3s ease;
+        font-family: inherit;
+    }
+
+        .btn.neon {
+            background: linear-gradient(135deg, #ff4ecd, #ffdd00);
+            color: white;
+            box-shadow: 0 0 15px rgba(255, 200, 0, 0.8);
+        }
+
+            .btn.neon:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 25px rgba(255, 230, 100, 1);
+            }
+
+    .error {
+        margin-top: 15px;
+        color: #ffb3b3;
+        font-size: 0.9rem;
+    }
+
+    .register-link {
+        display: block;
+        margin-top: 20px;
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+    }
+
+        .register-link span {
+            color: #ffdd00;
+            text-shadow: 0 0 8px rgba(255, 221, 0, 0.8);
+        }
+
+        .register-link:hover span {
+            text-decoration: underline;
+        }
+</style>
