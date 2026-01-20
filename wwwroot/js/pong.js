@@ -11,34 +11,37 @@ let botSpeed = 2;
 let score = 0;
 
 // ===== PADDLES =====
-const paddleWidth = 10, paddleHeight = 100;
+const paddleWidth = 10;
+const paddleHeight = 100;
+
+const botWidth = 10;
+const botHeight = 100;
+
 let paddleY = (canvas.height - paddleHeight) / 2;
-let botY = (canvas.height - paddleHeight) / 2;
+let botY = (canvas.height - botHeight) / 2;
 
 // ===== BALL =====
-let ballX, ballY;
-let ballRadius = 10;
-let ballSpeedX, ballSpeedY;
+let ballX = canvas.width / 2;
+let ballY = canvas.height / 2;
+const ballRadius = 10;
+let ballSpeedX = 0;
+let ballSpeedY = 0;
 
 // ===== START GAME =====
 function startGame(difficulty) {
-    // make sure overlay exists
-    if (menuOverlay) menuOverlay.style.display = "none";
-    if (gameOverOverlay) gameOverOverlay.style.display = "none";
+    menuOverlay.style.display = "none";
+    gameOverOverlay.style.display = "none";
 
-    // Set bot speed depending on difficulty
     if (difficulty === "easy") botSpeed = 1;
     else if (difficulty === "medium") botSpeed = 3;
     else if (difficulty === "hard") botSpeed = 6;
 
-    // Reset score and paddles
     score = 0;
     document.getElementById("score").innerText = score;
 
     paddleY = (canvas.height - paddleHeight) / 2;
-    botY = (canvas.height - paddleHeight) / 2;
+    botY = (canvas.height - botHeight) / 2;
 
-    // Reset ball in center
     ballX = canvas.width / 2;
     ballY = canvas.height / 2;
     ballSpeedX = 4;
@@ -47,12 +50,17 @@ function startGame(difficulty) {
     gameRunning = true;
 }
 
-
 // ===== RESTART =====
 function restartGame() {
     gameOverOverlay.style.display = "none";
     menuOverlay.style.display = "flex";
     gameRunning = false;
+}
+
+// ===== GAME OVER =====
+function showGameOver() {
+    finalScoreSpan.innerText = score;
+    gameOverOverlay.style.display = "flex";
 }
 
 // ===== DRAW =====
@@ -63,13 +71,13 @@ function drawPaddle() {
 
 function drawBot() {
     ctx.fillStyle = "#DD9500";
-    ctx.fillRect(canvas.width - paddleWidth, botY, paddleWidth, paddleHeight);
+    ctx.fillRect(canvas.width - botWidth, botY, botWidth, botHeight);
 }
 
 function drawBall() {
     ctx.beginPath();
     ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
-    ctx.fillStyle = "white";
+    ctx.fillStyle = "#ff4757"; // RED ball so it's visible
     ctx.fill();
 }
 
@@ -86,12 +94,11 @@ function draw() {
     drawBot();
     drawBall();
 
-    // Ball move
     ballX += ballSpeedX;
     ballY += ballSpeedY;
 
-    // Wall bounce
-    if (ballY < ballRadius || ballY > canvas.height - ballRadius) {
+    // Bounce top/bottom
+    if (ballY + ballRadius > canvas.height || ballY - ballRadius < 0) {
         ballSpeedY *= -1;
     }
 
@@ -108,27 +115,26 @@ function draw() {
 
     // Bot paddle
     if (
-        ballX + ballRadius > canvas.width - paddleWidth &&
+        ballX + ballRadius > canvas.width - botWidth &&
         ballY > botY &&
-        ballY < botY + paddleHeight
+        ballY < botY + botHeight
     ) {
         ballSpeedX *= -1;
     }
 
-    // Missed
-    if (ballX < 0) {
+    // Game over
+    if (ballX - ballRadius < 0) {
         gameRunning = false;
-        finalScoreSpan.innerText = score;
-        gameOverOverlay.style.display = "flex";
         saveScore(score);
+        showGameOver();
     }
 
     // Bot AI
-    let botCenter = botY + paddleHeight / 2;
+    const botCenter = botY + botHeight / 2;
     if (ballY > botCenter + 10) botY += botSpeed;
     else if (ballY < botCenter - 10) botY -= botSpeed;
 
-    botY = Math.max(0, Math.min(canvas.height - paddleHeight, botY));
+    botY = Math.max(0, Math.min(canvas.height - botHeight, botY));
 
     requestAnimationFrame(draw);
 }
