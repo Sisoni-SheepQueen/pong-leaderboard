@@ -27,8 +27,13 @@
 
 <div class="hud">
     <span>Score: <span id="score">0</span></span>
-    <a href="/Game/Leaderboard" class="btn outline">Leaderboard</a>
+
+    <div style="display:flex; gap:10px;">
+        <button class="btn outline" onclick="toggleTheme()">Toggle Theme</button>
+        <a href="/Game/Leaderboard" class="btn outline">Leaderboard</a>
+    </div>
 </div>
+
 
 <script src="~/js/pong.js"></script>
 
@@ -127,4 +132,31 @@
         font-size: 1.2rem;
         text-shadow: 0 0 10px rgba(255,255,255,0.5);
     }
+
+    /* ===== DULL THEME ===== */
+    body.dull-theme {
+        background: linear-gradient(135deg, #7a6a85, #8a8460);
+    }
+
+        body.dull-theme .title {
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        body.dull-theme .game-wrapper {
+            box-shadow: 0 0 20px rgba(120,120,120,0.5);
+        }
+
+        body.dull-theme .btn.neon {
+            background: linear-gradient(135deg, #8b6f92, #9a916a);
+            box-shadow: 0 0 10px rgba(150,150,150,0.5);
+        }
+
+        body.dull-theme .overlay h2 {
+            text-shadow: 0 0 8px rgba(200,200,200,0.4);
+        }
+
+        body.dull-theme canvas {
+            background: rgba(0,0,0,0.45);
+        }
+
 </style>

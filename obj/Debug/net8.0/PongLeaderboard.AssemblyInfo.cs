@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PongLeaderboard")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5765c50399bb8191d85ac789772b772129801f88")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+818b0ca5b7ad342b891edf373d075b6462a9c0fd")]
 [assembly: System.Reflection.AssemblyProductAttribute("PongLeaderboard")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PongLeaderboard")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

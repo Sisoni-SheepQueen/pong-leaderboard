@@ -9,6 +9,7 @@ const finalScoreSpan = document.getElementById("finalScore");
 let gameRunning = false;
 let botSpeed = 2;
 let score = 0;
+let dullMode = false;
 
 // ===== PADDLES =====
 const paddleWidth = 10;
@@ -65,21 +66,27 @@ function showGameOver() {
 
 // ===== DRAW =====
 function drawPaddle() {
-    ctx.fillStyle = "#0095DD";
+    ctx.fillStyle = dullMode ? "#6b7c93" : "#0095DD";
     ctx.fillRect(0, paddleY, paddleWidth, paddleHeight);
 }
 
 function drawBot() {
-    ctx.fillStyle = "#DD9500";
+    ctx.fillStyle = dullMode ? "#9b8b6b" : "#DD9500";
     ctx.fillRect(canvas.width - botWidth, botY, botWidth, botHeight);
 }
 
 function drawBall() {
     ctx.beginPath();
     ctx.arc(ballX, ballY, ballRadius, 0, Math.PI * 2);
-    ctx.fillStyle = "#ff4757"; // RED ball so it's visible
+    ctx.fillStyle = dullMode ? "#b85c6a" : "#ff4757";
     ctx.fill();
 }
+
+window.toggleTheme = function () {
+    dullMode = !dullMode;
+    document.body.classList.toggle("dull-theme", dullMode);
+};
+
 
 // ===== GAME LOOP =====
 function draw() {
