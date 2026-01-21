@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "C:\\Users\\Sisoni\\source\\repos\\PongLeaderboard\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Sisoni\\source\\repos\\PongLeaderboard\\Migrations\\20260120112912_AddUserNavigationToScore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260120112912_AddUserNavigationToScore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C59F8ABE-F5CD-4BB4-A905-E6F68708EB77}|PongLeaderboard.csproj|c:\\users\\sisoni\\source\\repos\\pongleaderboard\\migrations\\20260120112912_addusernavigationtoscore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C59F8ABE-F5CD-4BB4-A905-E6F68708EB77}|PongLeaderboard.csproj|solutionrelative:migrations\\20260120112912_addusernavigationtoscore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C59F8ABE-F5CD-4BB4-A905-E6F68708EB77}|PongLeaderboard.csproj|c:\\users\\sisoni\\source\\repos\\pongleaderboard\\controllers\\gamecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -37,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{C59F8ABE-F5CD-4BB4-A905-E6F68708EB77}|PongLeaderboard.csproj|c:\\users\\sisoni\\source\\repos\\pongleaderboard\\views\\auth\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{C59F8ABE-F5CD-4BB4-A905-E6F68708EB77}|PongLeaderboard.csproj|solutionrelative:views\\auth\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Sisoni\\source\\repos\\PongLeaderboard\\Migrations\\20260120111538_LinkScoresToUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260120111538_LinkScoresToUser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C59F8ABE-F5CD-4BB4-A905-E6F68708EB77}|PongLeaderboard.csproj|c:\\users\\sisoni\\source\\repos\\pongleaderboard\\data\\pongdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -77,6 +73,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{C59F8ABE-F5CD-4BB4-A905-E6F68708EB77}|PongLeaderboard.csproj|c:\\users\\sisoni\\source\\repos\\pongleaderboard\\migrations\\20260114110857_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C59F8ABE-F5CD-4BB4-A905-E6F68708EB77}|PongLeaderboard.csproj|solutionrelative:migrations\\20260114110857_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C59F8ABE-F5CD-4BB4-A905-E6F68708EB77}|PongLeaderboard.csproj|c:\\users\\sisoni\\source\\repos\\pongleaderboard\\migrations\\20260120111538_linkscorestouser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C59F8ABE-F5CD-4BB4-A905-E6F68708EB77}|PongLeaderboard.csproj|solutionrelative:migrations\\20260120111538_linkscorestouser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -90,7 +90,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Users\\Sisoni\\source\\repos\\PongLeaderboard\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
@@ -99,8 +99,7 @@
               "ViewState": "AgIAAEIAAAAAAAAAAAAAAEQAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-13T12:10:32.918Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -117,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 9,
               "Title": "PongDbContext.cs",
               "DocumentMoniker": "C:\\Users\\Sisoni\\source\\repos\\PongLeaderboard\\Data\\PongDbContext.cs",
               "RelativeDocumentMoniker": "Data\\PongDbContext.cs",
@@ -125,8 +124,7 @@
               "RelativeToolTip": "Data\\PongDbContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T12:07:02.139Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-13T12:07:02.139Z"
             },
             {
               "$type": "Document",
@@ -138,8 +136,7 @@
               "RelativeToolTip": "Models\\Score.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T12:04:59.223Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-13T12:04:59.223Z"
             },
             {
               "$type": "Document",
@@ -151,12 +148,11 @@
               "RelativeToolTip": "Views\\Game\\Leaderboard.cshtml",
               "ViewState": "AgIAAJsAAAAAAAAAAAAwwKwAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-13T12:27:35.916Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-13T12:27:35.916Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 18,
               "Title": "20260120111538_LinkScoresToUser.cs",
               "DocumentMoniker": "C:\\Users\\Sisoni\\source\\repos\\PongLeaderboard\\Migrations\\20260120111538_LinkScoresToUser.cs",
               "RelativeDocumentMoniker": "Migrations\\20260120111538_LinkScoresToUser.cs",
@@ -164,8 +160,7 @@
               "RelativeToolTip": "Migrations\\20260120111538_LinkScoresToUser.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-20T11:15:38.896Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-20T11:15:38.896Z"
             },
             {
               "$type": "Document",
@@ -177,8 +172,7 @@
               "RelativeToolTip": "Views\\Auth\\Register.cshtml",
               "ViewState": "AgIAAEAAAAAAAAAAAAAwwHYAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-13T12:21:30.873Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-13T12:21:30.873Z"
             },
             {
               "$type": "Document",
@@ -190,8 +184,7 @@
               "RelativeToolTip": "README.md",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-01-14T10:48:58.995Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-14T10:48:58.995Z"
             },
             {
               "$type": "Document",
@@ -203,8 +196,7 @@
               "RelativeToolTip": "wwwroot\\js\\site.js",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-01-20T11:08:56.861Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-20T11:08:56.861Z"
             },
             {
               "$type": "Document",
@@ -216,12 +208,11 @@
               "RelativeToolTip": "wwwroot\\js\\pong.js",
               "ViewState": "AgIAAG0AAAAAAAAAAAAwwH0AAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-01-13T12:26:02.107Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-13T12:26:02.107Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "PongLeaderboard.csproj",
               "DocumentMoniker": "C:\\Users\\Sisoni\\source\\repos\\PongLeaderboard\\PongLeaderboard.csproj",
               "RelativeDocumentMoniker": "PongLeaderboard.csproj",
@@ -241,8 +232,7 @@
               "RelativeToolTip": "Models\\User.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T12:03:53.28Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-13T12:03:53.28Z"
             },
             {
               "$type": "Document",
@@ -254,12 +244,11 @@
               "RelativeToolTip": "Controllers\\GameController.cs",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAADUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T12:27:04.533Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-13T12:27:04.533Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 17,
               "Title": "20260114110857_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\Sisoni\\source\\repos\\PongLeaderboard\\Migrations\\20260114110857_InitialCreate.cs",
               "RelativeDocumentMoniker": "Migrations\\20260114110857_InitialCreate.cs",
@@ -271,7 +260,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\Sisoni\\source\\repos\\PongLeaderboard\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
@@ -279,12 +268,11 @@
               "RelativeToolTip": "Controllers\\HomeController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-13T12:17:34.149Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-13T12:17:34.149Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "Login.cshtml",
               "DocumentMoniker": "C:\\Users\\Sisoni\\source\\repos\\PongLeaderboard\\Views\\Auth\\Login.cshtml",
               "RelativeDocumentMoniker": "Views\\Auth\\Login.cshtml",
@@ -292,12 +280,11 @@
               "RelativeToolTip": "Views\\Auth\\Login.cshtml",
               "ViewState": "AgIAAFoAAAAAAAAAAAAwwHUAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-13T12:21:13.781Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-13T12:21:13.781Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\Sisoni\\source\\repos\\PongLeaderboard\\Views\\Game\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Game\\Index.cshtml",
@@ -305,12 +292,11 @@
               "RelativeToolTip": "Views\\Game\\Index.cshtml",
               "ViewState": "AgIAAF8AAAAAAAAAAAAwwHMAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-13T12:22:42.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-13T12:22:42.138Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 15,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\Sisoni\\source\\repos\\PongLeaderboard\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -322,7 +308,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 16,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Sisoni\\source\\repos\\PongLeaderboard\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
